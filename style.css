@@ -1,0 +1,142 @@
+/* SO-101 Robotics & AI portfolio
+   Palette and typography inspired by the supplied portfolio PDF.
+   Edit the colour variables below to change the site-wide theme. */
+:root {
+  --ink: #100747;
+  --ink-soft: #1a1058;
+  --cream: #fffbe5;
+  --cream-dim: #e8e3ca;
+  --accent: #d8d0ff;
+  --line: rgba(255, 251, 229, 0.38);
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  line-height: 1.75;
+}
+a { color: inherit; }
+.topline { border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); }
+.topline-inner {
+  width: min(1280px, calc(100% - 64px));
+  margin: auto;
+  padding: 17px 0;
+  font-size: .82rem;
+  letter-spacing: .19em;
+  font-weight: 500;
+}
+.section-shell {
+  width: min(1280px, calc(100% - 64px));
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(180px, 30%) 1fr;
+  gap: 35px;
+  padding: 76px 0;
+  border-bottom: 1px solid var(--line);
+}
+.hero {
+  display: block;
+  text-align: center;
+  padding: 74px 20px 82px;
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow, .section-label {
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+.hero .eyebrow { margin: 0 0 12px; }
+h1 { margin: 0; line-height: .95; }
+.creative {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(5rem, 15vw, 12rem);
+  letter-spacing: -.075em;
+}
+.portfolio-word {
+  display: block;
+  font-family: var(--sans);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 7vw, 5.6rem);
+  letter-spacing: -.055em;
+}
+.ornament { font-size: 2rem; letter-spacing: .18em; margin: 26px 0 22px; }
+.hero h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 auto 12px;
+}
+.hero-copy { color: var(--cream-dim); margin: 0 auto; max-width: 660px; }
+.author { margin: 19px 0 0; font-size: .92rem; color: var(--cream-dim); }
+.author strong { color: var(--cream); }
+.affiliation {
+  max-width: 850px;
+  margin: 24px auto 0;
+  padding: 13px 18px;
+  border: 1px solid var(--line);
+  font-size: .88rem;
+  line-height: 1.6;
+}
+.section-label { padding-top: 8px; }
+.section-content { max-width: 850px; }
+.section-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  line-height: 1.2;
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+.section-content p { color: var(--cream-dim); margin: 0 0 15px; }
+.section-content a { color: var(--accent); text-underline-offset: 4px; }
+.section-intro { margin-top: -7px !important; }
+.video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 25px; }
+.video-card { min-width: 0; }
+.video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 520px;
+  background: #070326;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.text-link { display: inline-block; margin-top: 13px; color: var(--cream) !important; font-weight: 700; text-underline-offset: 5px; }
+.milestone { color: var(--cream) !important; font-weight: 700; padding-left: 16px; border-left: 3px solid var(--accent); }
+.lab { padding-top: 86px; padding-bottom: 90px; }
+.lab .section-content h2 { font-family: var(--sans); font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.04em; }
+.lab .section-content p { font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.8; color: var(--cream); }
+.social-links { display: flex; flex-wrap: wrap; gap: 12px 30px; margin-top: 27px; }
+.social-links a { font-weight: 700; color: var(--accent); text-underline-offset: 5px; }
+.footer { background: var(--cream); color: #4b4860; }
+.footer-inner {
+  width: min(1280px, calc(100% - 64px));
+  margin: auto;
+  padding: 22px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: .9rem;
+}
+@media (max-width: 760px) {
+  .section-shell { grid-template-columns: 1fr; gap: 17px; padding: 52px 0; }
+  .topline-inner, .section-shell, .footer-inner { width: calc(100% - 38px); }
+  .hero { padding: 57px 0 62px; }
+  .creative { font-size: clamp(4.5rem, 20vw, 8rem); }
+  .portfolio-word { font-size: clamp(2.7rem, 11vw, 4.5rem); }
+  .video-grid { grid-template-columns: 1fr; }
+  .video-frame { max-width: 390px; margin: auto; }
+  .footer-inner { flex-direction: column; }
+  .affiliation { font-size: .78rem; }
+}

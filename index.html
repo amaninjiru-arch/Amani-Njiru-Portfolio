@@ -1,97 +1,122 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#071321">
-<title>SO-101 Robotics & AI | From Teleoperation to Autonomous Learning</title>
-<style>
-:root{--bg:#071321;--panel:#102238;--line:#29435d;--blue:#38bdf8;--cyan:#67e8f9;--white:#f3f7fb;--muted:#b7c7d8}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--white);font:16px/1.65 Inter,Segoe UI,Arial,sans-serif}
-a{color:var(--cyan)} .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
-header{border-top:5px solid var(--blue);padding:72px 0 46px;background:radial-gradient(ellipse at 80% 10%,#123451 0,transparent 45%)}
-.eyebrow{color:var(--cyan);font-size:.78rem;letter-spacing:.16em;font-weight:700;text-transform:uppercase}
-h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.02;letter-spacing:-.04em;margin:14px 0 18px;max-width:850px}
-.lead{font-size:1.15rem;color:var(--muted);max-width:760px}
-.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.meta span,.tag{border:1px solid var(--line);background:var(--panel);padding:9px 13px;border-radius:7px;font-size:.9rem}
-main{padding:20px 0 70px} section{padding:32px 0;border-top:1px solid var(--line)}
-h2{font-size:1.65rem;margin:0 0 14px} h3{color:var(--cyan);font-size:1.05rem;margin:0 0 8px}
-p{color:#dce7f1;max-width:850px} .status{color:var(--cyan);font-weight:700;font-size:.9rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
-.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.video{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
-.video-frame{aspect-ratio:9/16;width:min(100%,340px);margin:auto;background:#02070d;border-radius:8px;overflow:hidden}
-.video-frame iframe{width:100%;height:100%;border:0}
-.video a{display:inline-block;margin-top:12px;font-weight:700}
-footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:.9rem}
-.pill{display:inline-block;color:var(--blue);font-size:.78rem;letter-spacing:.1em;font-weight:700}
-@media(max-width:600px){header{padding:52px 0 34px}.wrap{width:min(100% - 28px,1080px)}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100747">
+  <meta name="description" content="Amani Njiru's SO-101 robotics and AI project portfolio, exploring teleoperation, imitation learning and autonomous robotics.">
+  <title>SO-101 Robotics & AI | Amani Njiru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><div class="wrap">
-<div class="eyebrow">Robotics / Artificial Intelligence</div>
-<h1>From Teleoperation<br>to Autonomous Learning</h1>
-<p class="lead">A practical exploration of robotic control, human demonstrations and imitation learning using the SO-101 platform.</p>
-<div class="meta">
-<span><strong>SO-101 robotic arms</strong></span>
-<span><strong>Teleoperation and imitation learning</strong></span>
-<span><strong>ChipuRobo, Nairobi, Kenya</strong></span>
-</div>
-</div></header>
-<main class="wrap">
-<section>
-<div class="eyebrow">Project overview</div>
-<h2>Teaching robots through human demonstrations</h2>
-<p>This project explores how a robotic system can move from direct human control toward learning tasks from human demonstrations. Using a pair of SO-101 robotic arms and the LeRobot software environment, the work is organised around teleoperation, demonstration data collection and imitation learning.</p>
-<p>The work combines practical hardware setup with software configuration and an investigation into how visual observations, robot states and actions can be used to train a robot policy.</p>
-</section>
-<section>
-<div class="eyebrow">01 / Completed milestone</div>
-<h2>Teleoperation and robotic control</h2>
-<p>I configured the software environment, calibrated the leader arm and established communication between the leader and follower arms. Calibration defined the relationship between the arm's joint positions and movement limits, helping the system translate human-guided motion into commands for the follower.</p>
-<p>The leader arm acts as the human-controlled interface. As it is moved, the system captures its joint positions and sends corresponding commands to the follower arm. After testing and adjustments, I achieved real-time mirroring of the leader arm's movements by the follower.</p>
-<p class="status">Outcome: a functioning leader–follower teleoperation system.</p>
-</section>
-<section>
-<div class="eyebrow">02 / In development</div>
-<h2>Demonstration data collection</h2>
-<p>The next stage is to build a data-collection workflow that records demonstrations alongside observations of the robot and its environment. I am setting up an external camera so that recorded examples can combine visual scenes, robot states and actions.</p>
-<p>The intended dataset will capture repeated demonstrations of simple manipulation tasks, such as reaching for an object, grasping it and placing it at a target location. I am paying particular attention to consistency, recording quality and variation between demonstrations.</p>
-</section>
-<section>
-<div class="eyebrow">03 / Planned next stage</div>
-<h2>Imitation learning</h2>
-<p>Once a usable demonstration dataset has been collected, I plan to train an imitation-learning policy. A policy is a model that maps observations and robot state to an action. Rather than manually guiding every movement, the goal is for the follower arm to use a trained policy to perform a demonstrated task.</p>
-<p>Initial experiments will focus on simple, measurable tasks such as reaching, grasping and object placement. I also want to evaluate how the policy responds to imperfect demonstrations, small changes in object position and variations in the environment.</p>
-</section>
-<section>
-<div class="eyebrow">04 / Exploration</div>
-<h2>Lightweight AI for robotics</h2>
-<p>I am interested in exploring smaller, computationally efficient models for focused robotic tasks. The aim is to understand how visual observations and robot states can be mapped to actions while balancing model performance, inference requirements and available computing resources.</p>
-<p>This direction will help me build a practical understanding of model training, inference and evaluation, and investigate how capable robotic learning systems can be developed without depending immediately on expensive computing infrastructure.</p>
-</section>
-<section>
-<div class="eyebrow">Project evidence</div>
-<h2>Video demonstrations</h2>
-<p>Watch the two linked demonstrations associated with this project.</p>
-<div class="video-grid">
-<div class="video"><div class="pill">DEMONSTRATION 01</div><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/FB1j4_A-brc" title="SO-101 robotic arm demonstration 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><a href="https://www.youtube.com/shorts/FB1j4_A-brc" target="_blank" rel="noopener">Open on YouTube ↗</a></div>
-<div class="video"><div class="pill">DEMONSTRATION 02</div><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/s0h63EqvI7o" title="SO-101 robotic arm demonstration 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><a href="https://www.youtube.com/shorts/s0h63EqvI7o" target="_blank" rel="noopener">Open on YouTube ↗</a></div>
-</div>
-</section>
-<section>
-<div class="eyebrow">Project direction</div>
-<h2>From control to autonomy</h2>
-<p>My longer-term objective is to develop a robotic system that can learn practical tasks from human demonstrations and execute them with increasing autonomy. This project is helping me build experience across robotics, machine learning, computer vision and the practical application of AI.</p>
-<div class="grid">
-<div class="card"><h3>Technical focus</h3><p>SO-101 robotic arms · LeRobot · Teleoperation · Joint calibration · Demonstration data · Imitation learning · Computer vision · Lightweight AI</p></div>
-<div class="card"><h3>Project status</h3><p>Teleoperation is a completed milestone; camera-based data collection is in development; policy training and autonomous task execution are planned next steps.</p></div>
-</div>
-</section>
-</main>
-<footer><div class="wrap">SO-101 Robotics & AI · Project portfolio · ChipuRobo, Nairobi, Kenya</div></footer>
-</body></html>
+  <header class="topline">
+    <div class="topline-inner">ROBOTICS / ARTIFICIAL INTELLIGENCE</div>
+  </header>
+
+  <main>
+    <section class="hero section-shell">
+      <p class="eyebrow">SO-101 ROBOTIC ARMS</p>
+      <h1><span class="creative">Creative</span><span class="portfolio-word">PORTFOLIO</span></h1>
+      <div class="ornament" aria-hidden="true">•••</div>
+      <h2>From Teleoperation<br class="mobile-break"> to Autonomous Learning</h2>
+      <p class="hero-copy">Exploring how robots can learn practical tasks from human demonstrations.</p>
+      <p class="author">A project portfolio by <strong>Amani Njiru</strong></p>
+      <p class="affiliation"><strong>SO-101 robotic arms | Teleoperation and imitation learning | ChipuRobo, Nairobi, Kenya</strong></p>
+    </section>
+
+    <section class="intro section-shell" id="introduction">
+      <div class="section-label">THE PROJECT</div>
+      <div class="section-content">
+        <h2>Learning by building.</h2>
+        <p>This project explores how a robotic system can move from direct human control toward learning tasks from human demonstrations. Using a pair of SO-101 robotic arms and the LeRobot software environment, the work is organised around teleoperation, demonstration data collection and imitation learning.</p>
+        <p>The project combines practical hardware setup with software configuration and an investigation into how visual observations, robot states and actions can be used to train a robot policy.</p>
+      </div>
+    </section>
+
+    <section class="videos section-shell" aria-labelledby="video-heading">
+      <div class="section-label">WATCH THE ROBOT</div>
+      <div class="section-content">
+        <h2 id="video-heading">Demonstrations</h2>
+        <p class="section-intro">Two short videos documenting the robotic arm work.</p>
+        <div class="video-grid">
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/FB1j4_A-brc" title="SO-101 robotic arm demonstration one" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <a class="text-link" href="https://www.youtube.com/shorts/FB1j4_A-brc" target="_blank" rel="noopener noreferrer">Watch demonstration 01 on YouTube ↗</a>
+          </article>
+          <article class="video-card">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/s0h63EqvI7o" title="SO-101 robotic arm demonstration two" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <a class="text-link" href="https://www.youtube.com/shorts/s0h63EqvI7o" target="_blank" rel="noopener noreferrer">Watch demonstration 02 on YouTube ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section-shell" id="work">
+      <div class="section-label">01 / COMPLETED MILESTONE</div>
+      <div class="section-content">
+        <h2>Teleoperation and robotic control</h2>
+        <p>I configured the software environment, calibrated the leader arm and established communication between the leader and follower arms. Calibration defined the relationship between the arm's joint positions and movement limits, helping the system translate human-guided motion into commands for the follower.</p>
+        <p>The leader arm acts as the human-controlled interface. As it is moved, the system captures its joint positions and sends corresponding commands to the follower arm. After testing and adjustments, I achieved real-time mirroring of the leader arm's movements by the follower.</p>
+        <p class="milestone">Outcome: a functioning leader–follower teleoperation system.</p>
+      </div>
+    </section>
+
+    <section class="work section-shell">
+      <div class="section-label">02 / IN DEVELOPMENT</div>
+      <div class="section-content">
+        <h2>Demonstration data collection</h2>
+        <p>The next stage is to build a data-collection workflow that records demonstrations alongside observations of the robot and its environment. I am setting up an external camera so that recorded examples can combine visual scenes, robot states and actions.</p>
+        <p>The intended dataset will capture repeated demonstrations of simple manipulation tasks, such as reaching for an object, grasping it and placing it at a target location. I am paying particular attention to consistency, recording quality and variation between demonstrations.</p>
+      </div>
+    </section>
+
+    <section class="work section-shell">
+      <div class="section-label">03 / PLANNED NEXT STAGE</div>
+      <div class="section-content">
+        <h2>Imitation learning</h2>
+        <p>Once a usable demonstration dataset has been collected, I plan to train an imitation-learning policy. A policy is a model that maps observations and robot state to an action. Rather than manually guiding every movement, the goal is for the follower arm to use a trained policy to perform a demonstrated task.</p>
+        <p>Initial experiments will focus on simple tasks such as reaching, grasping and object placement. I also want to evaluate how the policy responds to imperfect demonstrations, small changes in object position and variations in the environment.</p>
+      </div>
+    </section>
+
+    <section class="work section-shell">
+      <div class="section-label">04 / EXPLORATION</div>
+      <div class="section-content">
+        <h2>Lightweight AI for robotics</h2>
+        <p>I am interested in exploring smaller, computationally efficient models for focused robotic tasks. The aim is to understand how visual observations and robot states can be mapped to actions while balancing model performance, inference requirements and available computing resources.</p>
+        <p>This direction will help me build a practical understanding of model training, inference and evaluation, and investigate how capable robotic learning systems can be developed without depending immediately on expensive computing infrastructure.</p>
+      </div>
+    </section>
+
+    <section class="lab section-shell" id="lab">
+      <div class="section-label">THE LAB</div>
+      <div class="section-content">
+        <h2>Built at ChipuRobo</h2>
+        <p>This project is my own work within <a href="https://chipurobo.com/" target="_blank" rel="noopener noreferrer">ChipuRobo</a>, a robotics lab in Nairobi, Kenya that delivers hands-on, inclusive AI and robotics education across Africa using locally fabricated kits. Working there is where I learn by building.</p>
+        <nav class="social-links" aria-label="ChipuRobo links">
+          <a href="https://chipurobo.com/" target="_blank" rel="noopener noreferrer">Website</a>
+          <a href="https://www.instagram.com/chipurobo/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.tiktok.com/@chipurobo" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://www.linkedin.com/company/chipurobo-center/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=61559555720840" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Amani Njiru — SO-101 Robotics &amp; AI project portfolio</span>
+      <span>ChipuRobo, Nairobi, Kenya</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
